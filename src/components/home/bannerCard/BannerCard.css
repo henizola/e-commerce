@@ -1,0 +1,24 @@
+/* banner section */
+.banner_cards {
+  border: 0;
+  background-color: #0d0d0d !important;
+}
+
+.banner_cards h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Prata", serif;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.banner_cards .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
