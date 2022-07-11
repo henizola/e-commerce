@@ -17,60 +17,60 @@ export default class Navbar extends Component {
 					</Link>
 					<ul className='rightsidenav centerd'>
 						<li className='rightsidenav_item'>
-							<a href='/' className='rightsidenav_item_link'>
+							<Link to='/' className='rightsidenav_item_link'>
 								Home
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='/about' className='rightsidenav_item_link'>
+							<Link to='/about' className='rightsidenav_item_link'>
 								About us
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='/sign-up' className='rightsidenav_item_link'>
 								Membership
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='/blog' className='rightsidenav_item_link'>
 								Blog
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='/contact' className='rightsidenav_item_link'>
 								Contact
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='/shop' className='rightsidenav_item_link'>
 								Shop
-							</a>
+							</Link>
 						</li>
 					</ul>
 					<ul className='rightsidenav'>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='' className='rightsidenav_item_link'>
 								{/* <span className="icon search_nav"></span> */}
 								<FaSearch className='navbar_icons' />
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='' className='rightsidenav_item_link'>
 								{/* <span className="icon search_nav"></span> */}
 								<FaRegUser className='navbar_icons' />
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='' className='rightsidenav_item_link'>
 								{/* <span className="icon search_nav"></span> */}
 								<FaRegHeart className='navbar_icons' />
-							</a>
+							</Link>
 						</li>
 						<li className='rightsidenav_item'>
-							<a href='' className='rightsidenav_item_link'>
+							<Link to='' className='rightsidenav_item_link'>
 								{/* <span className="icon search_nav"></span> */}
 								<FaShoppingBag className='navbar_icons' />
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
