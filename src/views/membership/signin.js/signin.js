@@ -23,7 +23,7 @@ const SignIn =()=>{
 						}} />
 						</InputGroup>
 						 
-						<Button type='submit' full>SignUp</Button>
+						<Button type='submit' full>SignIn</Button>
 						 <div style={{color:'white',padding:'10px'}}>
 							you don't have an account? <a href="/sign-up"><span style={{color:'#2f8bfd',textDecoration:'underline',fontSize:"2rem"}}>signup</span></a>
 						 </div>
