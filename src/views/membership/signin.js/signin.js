@@ -1,40 +1,63 @@
 import React from "react";
-import { Form } from "../form-style";
+import { Form, LoginForm } from "../form-style";
 import InputGroup from "../components/textfield/input-group";
 import Input from "../components/textfield/input";
 import Button from "../components/buttons/button";
-const SignIn =()=>{
-    return ( 
-       <div classNameName='wrapper'>
-				{/* <nav className='breadcrumb text-center' aria-label='breadcrumbs'> */}
-					<div className='container' style={{width:'100%',display:'flex',justifyContent:"center",alignItems:"center",alignContent:"center"}}>
-                         <Form>
+const SignIn = () => {
+	return (
+		<div classNameName='wrapper'>
+			<nav className='breadcrumb text-center' aria-label='breadcrumbs'>
+				<div className='container '>
+					<h1 className='breadcrumb_title '>Sign in</h1>
+					<a href='/' title='Back to the frontpage'>
+						Home
+					</a>
 
-						 <InputGroup>
-						<label htmlFor="email">Email Address</label>
-						<Input type='email' placeholder='joe@gmail.com' id='email'  onChange={(e)=>{
-							console.log(e.target.value);
-						}} />
-						</InputGroup>
-						<InputGroup>
-						<label htmlFor="password">Password</label>
-						<Input type='password'   id='password'  onChange={(e)=>{
-							console.log(e.target.value);
-						}} />
-						</InputGroup>
-						 
-						<Button type='submit' full>SignIn</Button>
-						 <div style={{color:'white',padding:'10px'}}>
-							you don't have an account? <a href="/sign-up"><span style={{color:'#2f8bfd',textDecoration:'underline',fontSize:"2rem"}}>signup</span></a>
-						 </div>
-						 </Form>
+					<span aria-hidden='true' className='breadcrumb__sep'>
+						/
+					</span>
+					<span>Signin</span>
+				</div>
+			</nav>
+			<div className='container'>
+				<LoginForm>
+					<InputGroup>
+						<label htmlFor='email'>Email Address</label>
+						<Input
+							type='email'
+							placeholder='joe@gmail.com'
+							id='email'
+							onChange={(e) => {
+								console.log(e.target.value);
+							}}
+						/>
+					</InputGroup>
+					<InputGroup>
+						<label htmlFor='password'>Password</label>
+						<Input
+							type='password'
+							id='password'
+							onChange={(e) => {
+								console.log(e.target.value);
+							}}
+						/>
+					</InputGroup>
 
+					<button className='send' type='submit' full>
+						SignIn
+					</button>
+					<div className='flex'>
+						<div></div>
+						<div>
+							you don't have an account?{" "}
+							<a href='/sign-up'>
+								<span>signup</span>
+							</a>
+						</div>
 					</div>
-				{/* </nav> */}
-
-				{/* card Section */}
-				
+				</LoginForm>
 			</div>
-    );
-}
+		</div>
+	);
+};
 export default SignIn;

@@ -104,3 +104,43 @@ h1{
     color: #fff!important;
 margin-bottom:20px;
 }
+
+.box{
+    display: flex;
+    justify-content: space-between;
+    width:80vw;
+    bordeR:2px solid white;
+    padding:30px 50px;
+    font-size: 22px;
+    font-weight: 900;
+    margin-top:30px;
+   
+}
+.box  svg{
+    margin-right: 20px;
+}
+
+.title{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.contact-form{
+  
+    max-width:40vw!important;
+    margin:100px auto;
+}
+.send{
+    padding:10px 50px;
+    border:1px solid white;
+    background-color: transparent;
+}
+
+textarea{width:100%;
+    outline:none;
+    padding:8px 16px;
+    border:1px solid #e0e6e8;
+    border-radius:4px;
+    font-size:1.7rem;
+    color:#888888;
+    transition:box-shadow 0.2}
