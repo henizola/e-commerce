@@ -12,7 +12,7 @@ import Home from "./views/home/Home";
 import Signup from "./views/membership/Signup";
 import ProductDetail from "./views/productDetail/ProductDetail";
 import Shop from "./views/shop/Shop";
-
+import SignIn from "./views/membership/signin.js/signin";
 const Routes = () => {
 	return (
 		<Switch>
@@ -23,6 +23,12 @@ const Routes = () => {
 				exact
 				path='/sign-up'
 				component={Signup}
+				layout={MainView}
+			/>
+			<RouteWithLayout
+				exact
+				path='/signin'
+				component={SignIn}
 				layout={MainView}
 			/>
 			<RouteWithLayout

@@ -51,7 +51,9 @@ class Signup extends Component {
 						</InputGroup>
 						<Button type='submit' full>SignUp</Button>
 						 <div style={{color:'white'}}>
-							Alreay have an account? <span style={{color:'#2f8bfd',textDecoration:'underline',fontSize:"2rem"}}>signin</span>
+							Alreay have an account?<a href="/signin">
+							<span style={{color:'#2f8bfd',textDecoration:'underline',fontSize:"2rem"}}>signin</span>
+							</a>
 						 </div>
 						 </Form>
 
