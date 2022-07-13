@@ -73,7 +73,6 @@ class Contact extends Component {
 									setyle={{
 										height: "400px!improtant",
 										maxHeight: "400px!improtant",
-										border: "2px solid red",
 									}}
 								>
 									<label htmlFor='confirm'>Message</label>

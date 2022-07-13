@@ -57,6 +57,22 @@ const SignIn = () => {
 					</div>
 				</LoginForm>
 			</div>
+			<div className='footer_newsletter'>
+				<h1>Newsletter</h1>
+				<div className='footer_newsletter_input_wrapper'>
+					<input
+						type='email'
+						className='footer_newsletter_input'
+						placeholder='Your email*'
+					/>
+					<a
+						href='/'
+						className='btn btn-secondary btn-lg footer_newsletter_button'
+					>
+						SUBMIT
+					</a>
+				</div>
+			</div>
 		</div>
 	);
 };
