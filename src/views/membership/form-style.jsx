@@ -13,12 +13,12 @@ export const Form = styled.div`
 	margin: 0 auto;
 	margin-top: 100px;
 	@media (max-width: 768px) {
-   
 	grid-template-columns: 1fr;
 	max-width: 100%;
   }
 	/* border:2px solid green; */
 `;
+ 
 
 export const LoginForm = styled.div`
 	display: flex;
@@ -38,5 +38,9 @@ export const LoginForm = styled.div`
 			color: green;
 		}
 	}
+	@media (max-width: 900px) {
+	grid-template-columns: 1fr;
+	max-width: 100%;
+  }
 	/* border:2px solid green; */
 `;
