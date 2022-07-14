@@ -71,3 +71,9 @@
   margin:10px 50px;
  padding-top:60px;
 }
+ /* .row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+ } */

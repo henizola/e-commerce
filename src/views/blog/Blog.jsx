@@ -22,19 +22,20 @@ class Blog extends Component {
 
 				{/* card Section */}
 				<CardList>
-					<div classNameName='col-12 col-md-8 my-4'>
-						<div classNameName='card bg-transparent pos-rel card-height'>
-							<div className='about-content row'>
-								<div className='about-item about-image col-lg-6 pr-0 pr-xs-15 pr-md-15 mb-md-30'>
+					{/* <div classNameName='col-12 col-md-8 my-4'> */}
+						{/* <div classNameName='card bg-transparent pos-rel card-height'> */}
+							<div className='' >
+								<div className="main-row">
+								<div className='about-item about-image   pr-0 pr-xs-15 pr-md-15 mb-md-30 response'>
 									<img
 										className='img-fluid'
 										src='/images/bg/banner1.jpg'
 										alt='blog img'
 									/>
-								</div>
+							</div>
 
-								<div className='about-item about-text col-lg-6 pl-50 pl-md-15 mb-md-30'>
-									<div className='medium-up--text-'>
+								<div className='about-item about-text response  pl-md-15 mb-md-30  container-row '>
+									<div className='medium-up--text- '>
 										<h1 className='title-block'>WHAT THE PAPERS SAID</h1>
 
 										<div className='rte-setting'>
@@ -55,7 +56,9 @@ class Blog extends Component {
 										</div>
 									</div>
 								</div>
-								<div className='about-item about-text col-lg-6 pr-50 pr-md-15 mt-60 mt-md-0 mb-md-40'>
+								</div>
+								<div className="main-row row2">
+								<div className='about-item about-text response pr-50 pr-md-15 mt-60 mt-md-0 mb-md-4 container-row2'>
 									<div className='medium-up--text-'>
 										<h1 className='title-block'>GENIUS IS BORN CRAZY</h1>
 
@@ -84,16 +87,17 @@ class Blog extends Component {
 										</div>
 									</div>
 								</div>
-								<div className='about-item about-image col-lg-6 pl-0 pl-lg-15 mb-md-60'>
+								<div className='about-item about-image  response pl-0 pl-lg-15 mb-md-60'>
 									<img
 										className='img-fluid'
 										src='/images/bg/banner2.jpg'
 										alt='blog img'
 									/>
 								</div>
+								</div>
 							</div>
-						</div>
-					</div>
+						{/* </div> */}
+					{/* </div> */}
 				</CardList>
 			</div>
 		);

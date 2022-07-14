@@ -1,6 +1,6 @@
 .card_lg_detail {
   position: absolute;
-  top: 0;
+  top: 0; 
   left: 0;
   width: 100%;
   height: 100%;
@@ -104,3 +104,54 @@ h1{
     color: #fff!important;
 margin-bottom:20px;
 }
+.main-row{
+    
+    display: flex;
+    justify-content: center;
+    
+}
+.response{
+    flex: 0 0 50%;
+}
+.about-image {
+    width: 50%;
+}
+.container-row {
+    padding-left: 50px!important;
+    
+ }
+ .container-row2{
+    padding-right: 50px!important;
+ }
+@media (max-width: 770px) {
+    .about-image {
+        max-width: 100%;
+        width:100%;
+        /* border: 2px solid green; */
+    }
+    .main-row{
+        /* border: 2px solid green; */
+      padding:10px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+         
+    }
+    .row2{
+        flex-direction: column-reverse;
+    }
+    .container-row {
+        padding-left: 0px!important;
+        
+      
+     }
+     .container-row2{
+        padding-right: 0px!important;
+     }
+    /* .container-row{
+        background-color: red;
+       
+        width: 100%;
+    } */
+  }

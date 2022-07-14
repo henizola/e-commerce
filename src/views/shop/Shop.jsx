@@ -22,9 +22,9 @@ class Shop extends Component {
 					<div className='catagories'>
 						<CustomSlider onClick={onClick} />
 					</div>
-					<div className='row'>
+					<div className='row'  >
 						{this.state.items.map((item) => (
-							<div className='col-4' key={item.id}>
+							<div className='col-4'  key={item.id} style={{minWidth:'400px'}}>
 								{/* card */}
 								<Card filter={this.state.filter} />
 								{/* card */}

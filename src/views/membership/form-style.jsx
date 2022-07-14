@@ -3,15 +3,20 @@ import styled from "styled-components";
 export const Form = styled.div`
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	width: 100%;
 	max-width: 50vw;
 	padding: 1.3rem;
-	grid-column-gap: 50px;
+	grid-column-gap: 50px; 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	margin: 0 auto;
 	margin-top: 100px;
-
+	@media (max-width: 768px) {
+   
+	grid-template-columns: 1fr;
+	max-width: 100%;
+  }
 	/* border:2px solid green; */
 `;
 
