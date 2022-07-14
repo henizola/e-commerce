@@ -95,7 +95,8 @@ class About extends Component {
 					<div classNameName='col-12 col-md-8 my-4'>
 						<div classNameName='card bg-transparent pos-rel card-height'>
 							<div className='about-content row'>
-								<div className='about-item about-image col-lg-6 pr-0 pr-xs-15 pr-md-15 mb-md-30'>
+							<div className="main-row">
+							<div className='about-item about-image   pr-0 pr-xs-15 pr-md-15 mb-md-30 response'>
 									<img
 										className='img-fluid'
 										src='https://static.wixstatic.com/media/9f63e0_a850b389ab134f14b195f7d1b0eff408~mv2.jpg/v1/fill/w_1000,h_563,al_c,q_85,enc_auto/9f63e0_a850b389ab134f14b195f7d1b0eff408~mv2.jpg'
@@ -103,7 +104,7 @@ class About extends Component {
 									/>
 								</div>
 
-								<div className='about-item about-text col-lg-6 pl-50 pl-md-15 mb-md-30'>
+								<div className='about-item about-text response  pl-md-15 mb-md-30  container-row '>
 									<div className='medium-up--text-'>
 										<div className='rte-setting'>
 											<p>
@@ -129,6 +130,7 @@ class About extends Component {
 											</p>
 										</div>
 									</div>
+								</div>
 								</div>
 								<p style={{ margin: "50px 0" }}>
 									Ordinarily, in a meeting place people do spend time together,
@@ -169,7 +171,8 @@ class About extends Component {
 								>
 									Our motto: If you think, you work! request.
 								</p>
-								<div className='about-item about-text col-lg-6 pr-50 pr-md-15 mt-60 mt-md-0 mb-md-40'>
+								<div className="main-row row2">
+								<div className='about-item about-text response pr-50 pr-md-15 mt-60 mt-md-0 mb-md-4 container-row2'>
 									<div className='medium-up--text-'>
 										<div className='rte-setting'>
 											<p>
@@ -194,12 +197,13 @@ class About extends Component {
 										</div>
 									</div>
 								</div>
-								<div className='about-item about-image col-lg-6 pl-0 pl-lg-15 mb-md-60'>
+								<div className='about-item about-image  response pl-0 pl-lg-15 mb-md-60'>
 									<img
 										className='img-fluid'
 										src='https://static.wixstatic.com/media/9f63e0_2341c60c9aa04ad589331c0c1ce3dd7b~mv2.jpg/v1/fill/w_498,h_309,al_c,q_80,usm_0.66_1.00_0.01/9f63e0_2341c60c9aa04ad589331c0c1ce3dd7b~m'
 										alt='blog img'
 									/>
+								</div>
 								</div>
 
 								<p
