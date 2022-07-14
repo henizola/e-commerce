@@ -110,3 +110,13 @@ margin-bottom:20px;
     width:100%;
     object-fit: cover;
 }
+
+@media screen and (max-width:600px){
+
+    .about-content p,img{
+
+        max-width: 90%;
+    text-align: center!important;
+
+    }
+}

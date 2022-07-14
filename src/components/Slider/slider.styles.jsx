@@ -22,7 +22,7 @@ export const Rounded = styled.button`
 	border-radius: 20%;
 	margin-left: 50px !important;
 	border: 1px solid #fefefe;
-	/* padding: 50px; */
+	padding: 0px !important;
 
 	color: #ffffff;
 	@media screen and (max-width: 600px) {
