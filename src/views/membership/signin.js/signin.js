@@ -1,9 +1,62 @@
-import React from "react";
-import { Form, LoginForm } from "../form-style";
+import React,{useState} from "react";
+import { ErrorDisplay, LoginForm, } from "../form-style";
 import InputGroup from "../components/textfield/input-group";
 import Input from "../components/textfield/input";
 import Button from "../components/buttons/button";
+import axios from "axios";
 const SignIn = () => {
+	const [email,setEmail]=useState('');
+	const [password,setPassword]=useState('');
+	const [error,setError] =useState({});
+	const [somErrors,setSomeErrors] = useState('');
+	const submmit=async()=>{
+		//  try {
+			setError({});
+			setSomeErrors('');
+			await axios.post('http://localhost:9000/e-commerce/auth/login',{ email,password }).then((res)=>{
+				console.log('response',
+					res.data
+					)
+					setError( {});
+			}).catch(  (error)=> {
+				 
+			if (error.response) {
+			  // The request was made and the server responded with a status code
+			  // that falls out of the range of 2xx
+			  console.log('response error:', error.response.data );
+			  if(error.response.status==400)
+			  {
+				try {
+					
+				var obj=	JSON.parse(error.response.data['message']);
+				 
+				if(obj)
+				setError(obj);
+				} catch (erro) {
+					setSomeErrors(error.response.data['message'])
+				}
+				
+			 
+			}else  {
+				setSomeErrors(error.response.data['message'] )
+			  }
+			//   console.log(error.response.status);
+			//   console.log(error.response.headers);
+			} else if (error.request) {
+			  // The request was made but no response was received
+			  // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+			  // http.ClientRequest in node.js
+			  console.log('request error:',error.request);
+			  setSomeErrors('request error');
+			} else {
+			  // Something happened in setting up the request that triggered an Error
+			  console.log('Error', error.message);
+			  setSomeErrors(  error.message);
+			}
+		 
+		  });
+		 
+	 }
 	return (
 		<div classNameName='wrapper'>
 			<nav className='breadcrumb text-center' aria-label='breadcrumbs'>
@@ -21,31 +74,37 @@ const SignIn = () => {
 			</nav>
 			<div className='container'>
 				<LoginForm>
-					<InputGroup>
-						<label htmlFor='email'>Email Address</label>
-						<Input
-							type='email'
-							placeholder='joe@gmail.com'
-							id='email'
-							onChange={(e) => {
-								console.log(e.target.value);
-							}}
-						/>
-					</InputGroup>
-					<InputGroup>
-						<label htmlFor='password'>Password</label>
-						<Input
-							type='password'
-							id='password'
-							onChange={(e) => {
-								console.log(e.target.value);
-							}}
-						/>
-					</InputGroup>
-
-					<button className='send' type='submit' full>
-						SignIn
-					</button>
+				<InputGroup>
+							<label htmlFor='email'>Email Address</label>
+							<Input
+								type='email'
+								placeholder='Email'
+								id='email'
+								onChange={(e) => {
+									 setEmail(e.target.value);
+								}}
+							/>
+							<ErrorDisplay> {error['email']}</ErrorDisplay>
+						</InputGroup>
+						<InputGroup>
+							<label htmlFor='password'>Password</label>
+							<Input
+								type='password'
+								placeholder='Password'
+								id='password'
+								onChange={(e) => {
+									setPassword(e.target.value);
+								}}
+							/>
+							<ErrorDisplay> {error['password']}</ErrorDisplay>
+						</InputGroup>
+						<ErrorDisplay> {somErrors}</ErrorDisplay>
+					<button className='send' type='submit' full onClick={(e)=>{
+							e.preventDefault();
+							submmit();
+						}}>
+							Signin
+						</button>
 					<div className='flex'>
 						<div></div>
 						<div>

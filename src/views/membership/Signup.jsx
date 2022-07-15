@@ -2,12 +2,67 @@ import React, { Component } from "react";
 import CardList from "../../components/home/cardList/CardList";
 import "./Signup.css";
 
-import { Form, LoginForm } from "./form-style";
+import { Form, LoginForm,ErrorDisplay } from "./form-style";
 import Input from "./components/textfield/input";
 import InputGroup from "./components/textfield/input-group";
 import Button from "./components/buttons/button";
-class Signup extends Component {
-	render() {
+import axios from "axios";
+import { useState } from "react";
+const Signup    =() =>{
+         const [firstName,setFirstName]=useState('');
+		 const [lastName,setLastName]=useState('');
+		 const [email,setEmail]=useState('');
+		 const [password,setPassword]=useState('');
+		 const [phone,setPhone]=useState('');
+		 const [confirmPassword,setConfirmPassword] =useState('');
+		 const [error,setError] =useState({});
+		 const [somErrors,setSomeErrors] = useState('');
+		 const submmit=async()=>{
+            //  try {
+				await axios.post('http://localhost:9000/e-commerce/auth/register',{firstName,lastName,email,password,phone,role:'customer'}).then((res)=>{
+					console.log('response',
+						res.data
+						)
+				}).catch(  (error)=> {
+					 
+				if (error.response) {
+				  // The request was made and the server responded with a status code
+				  // that falls out of the range of 2xx
+				  if(error.response.status==400)
+				  {
+					try {
+						console.log('response error:', error.response.data );
+					var obj=	JSON.parse(error.response.data['message']);
+					 
+					if(obj)
+					setError(obj);
+					} catch (erro) {
+						setSomeErrors(error.response.data['message'])
+					}
+					
+				 
+				}else{
+					
+				  }
+				//   console.log(error.response.status);
+				//   console.log(error.response.headers);
+				} else if (error.request) {
+				  // The request was made but no response was received
+				  // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+				  // http.ClientRequest in node.js
+				  console.log('request error:',error.request);
+				  setSomeErrors('request error');
+				} else {
+				  // Something happened in setting up the request that triggered an Error
+				  console.log('Error', error.message);
+				  setSomeErrors(  error.message);
+				}
+				// console.log(error.config);
+			  });
+			//  } catch (error) {
+			// 	console.log(error.response.data);
+			//  }
+		 }
 		return (
 			<div classNameName='wrapper'>
 				<nav className='breadcrumb text-center' aria-label='breadcrumbs'>
@@ -26,15 +81,17 @@ class Signup extends Component {
 				<div className='container'>
 					<Form className='form-cont'>
 						<InputGroup>
-							<label htmlFor='firstNamme'>First Name</label>
+							<label htmlFor='firstName'>First Name</label>
 							<Input
 								type='text'
-								placeholder='First Namme'
-								id='firstNamme'
+								placeholder='First Name'
+								id='firstName'
 								onChange={(e) => {
-									console.log(e.target.value);
+									 
+									setFirstName(e.target.value);
 								}}
 							/>
+							<ErrorDisplay> {error['firstName']}</ErrorDisplay>
 						</InputGroup>
 						<InputGroup>
 							<label htmlFor='lastName'>Last Name</label>
@@ -43,9 +100,10 @@ class Signup extends Component {
 								placeholder='Last Name'
 								id='lastName'
 								onChange={(e) => {
-									console.log(e.target.value);
+									setLastName(e.target.value);
 								}}
 							/>
+							<ErrorDisplay> {error['lastName']}</ErrorDisplay>
 						</InputGroup>
 						<InputGroup>
 							<label htmlFor='telPhone'>TelePhone</label>
@@ -54,9 +112,10 @@ class Signup extends Component {
 								placeholder='Phone'
 								id='telPhone'
 								onChange={(e) => {
-									console.log(e.target.value);
+									setPhone(e.target.value);
 								}}
 							/>
+							<ErrorDisplay> {error['phone']}</ErrorDisplay>
 						</InputGroup>
 						<InputGroup>
 							<label htmlFor='email'>Email Address</label>
@@ -65,9 +124,10 @@ class Signup extends Component {
 								placeholder='Email'
 								id='email'
 								onChange={(e) => {
-									console.log(e.target.value);
+									 setEmail(e.target.value);
 								}}
 							/>
+							<ErrorDisplay> {error['email']}</ErrorDisplay>
 						</InputGroup>
 						<InputGroup>
 							<label htmlFor='password'>Password</label>
@@ -76,9 +136,10 @@ class Signup extends Component {
 								placeholder='Password'
 								id='password'
 								onChange={(e) => {
-									console.log(e.target.value);
+									setPassword(e.target.value);
 								}}
 							/>
+							<ErrorDisplay> {error['password']}</ErrorDisplay>
 						</InputGroup>
 						<InputGroup>
 							<label htmlFor='confirm'>Confirm password</label>
@@ -86,13 +147,17 @@ class Signup extends Component {
 								type='password'
 								id='confirm'
 								onChange={(e) => {
-									console.log(e.target.value);
+									setConfirmPassword(e.target.value);
 								}}
 							/>
 						</InputGroup>
 					</Form>
+					<ErrorDisplay> {somErrors}</ErrorDisplay>
 					<LoginForm>
-						<button className='send' type='submit' full>
+						<button className='send' type='submit' full onClick={(e)=>{
+							e.preventDefault();
+							submmit();
+						}}>
 							SignUp
 						</button>
 						<div className='flex'>
@@ -133,6 +198,6 @@ class Signup extends Component {
 			</div>
 		);
 	}
-}
+
 
 export default Signup;

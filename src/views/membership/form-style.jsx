@@ -44,3 +44,6 @@ export const LoginForm = styled.div`
   }
 	/* border:2px solid green; */
 `;
+export const ErrorDisplay =styled.div`
+color:red;
+`
