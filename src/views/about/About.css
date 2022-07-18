@@ -120,3 +120,19 @@ margin-bottom:20px;
 
     }
 }
+
+
+.slider{
+                width: 100vw;
+					height: 60vh;
+					background: transparent;
+					overflow: scroll;
+				
+
+                    padding-left:40vw;
+}
+
+.cloudcarousel{
+    width:30vw;
+    height: auto;
+}
