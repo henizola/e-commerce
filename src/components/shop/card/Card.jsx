@@ -6,21 +6,19 @@ export default class Card extends Component {
 		colorChoice: "orange",
 	};
 	render() {
-		console.log("here", this.props.filter);
 		return (
-			<Link to='/product-detail/cloths' style={{ textDecoration: "none" }}>
+			<Link
+				to={`/product-detail/${this.props.item.id}`}
+				style={{ textDecoration: "none" }}
+			>
 				<div className='d-flex justify-content-center align-items-center flex-column'>
 					<img
-						src={
-							!this.props.filter
-								? `images/${this.state.mainImage}`
-								: `images/${this.props.filter}`
-						}
+						src={this.props.item.thumbnail}
 						alt=''
 						className='shopImageMain'
 					/>
-					<h2 className='product_name_shop'>Product name</h2>
-					<h4 className='product_name2_shop'>Preview FW20</h4>
+					<h2 className='product_name_shop'>{this.props.item.name}</h2>
+					<h4 className='product_name2_shop'>{this.props.item.type}</h4>
 					<div>
 						<div className='inline text-center text-light'>
 							<div
@@ -29,16 +27,14 @@ export default class Card extends Component {
 								}}
 							>
 								<img
-									src={
-										!this.props.filter
-											? "/images/green1.jpg"
-											: `images/${this.props.filter}`
-									}
+									src={this.props.item.images[0].img}
 									height='100px'
 									width='100px'
+									alt='colors'
+									className='alt-imgs'
 								/>
 								<br />
-								Military Green
+								{this.props.item.images[0].name}
 							</div>
 						</div>
 						<div className='inline text-center text-light'>
@@ -48,16 +44,14 @@ export default class Card extends Component {
 								}}
 							>
 								<img
-									src={
-										!this.props.filter
-											? "/images/orange1.jpg"
-											: `images/${this.props.filter}`
-									}
+									src={this.props.item.images[1].img}
 									height='100px'
 									width='100px'
+									alt='colors'
+									className='alt-imgs'
 								/>
 								<br />
-								Orange
+								{this.props.item.images[1].name}
 							</div>
 						</div>
 					</div>
@@ -69,7 +63,7 @@ export default class Card extends Component {
 						<li>5</li>
 						<li className='not'>6</li>
 					</ul>
-					<h3 className='shop_price'>EUR 715,00</h3>
+					<h3 className='shop_price'>EUR {this.props.item.price}</h3>
 				</div>
 			</Link>
 		);

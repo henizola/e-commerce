@@ -5,8 +5,11 @@
   background-color: "#fff";
   object-fit: contain;
   cursor: pointer;
+  margin:20px 0;
 }
-
+.alt-imgs{
+  margin:10px;
+}
 .shopul {
   list-style: none;
   display: flex;

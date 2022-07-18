@@ -74,7 +74,7 @@ class Home extends Component {
 					</div>
 					<div className='col-12 col-md-8 my-4'>
 						<div className='card bg-transparent pos-rel card-height'>
-							<img src='images/Blog/blog1.jpeg' alt='' className='img-fluid' />
+							<img src='images/bg/card4.jpg' alt='' className='img-fluid' />
 							<div className='card-body bg-transparent card_lg_detail'>
 								<h4 className='card_small_title'>WOMEN'S Outerwear</h4>
 								<h2 className='card_title'>

@@ -1,11 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
-// import LeftArrow from "../../Assets/left-arrow.svg";
-// import RightArrow from "../../Assets/right-arrow.svg";
 import { Container, Rounded } from "./slider.styles";
 
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 export default function CustomSlider({ onClick }) {
 	const settings = {
 		dots: true,
@@ -46,51 +44,57 @@ export default function CustomSlider({ onClick }) {
 	return (
 		<Container>
 			<Slider {...settings} className='card__container--inner'>
-				<Rounded onClick={() => onClick("v.jpg")}>
-					<p>Vest & Urns</p>
+				<Rounded onClick={() => onClick("all")}>
+					<p>All</p>
 				</Rounded>
-				<Rounded onClick={() => onClick("shirt.png")}>
-					{" "}
-					<p>T-shirt</p>
-				</Rounded>
-				<Rounded onClick={() => onClick("throuser.png")}>
-					{" "}
-					<p>Trousers</p>
-				</Rounded>
-				<Rounded onClick={() => onClick("jacket.png")}>
-					{" "}
-					<p>Jackets</p>
-				</Rounded>
-				<Rounded onClick={() => onClick("shoes.png")}>
-					{" "}
+				<Rounded onClick={() => onClick("shoes")}>
 					<p>Shoes</p>
 				</Rounded>
-				<Rounded onClick={() => onClick("swim.png")}>
+				<Rounded onClick={() => onClick("cloth")}>
 					{" "}
-					<p>Swimming suits </p>
+					<p>Clothes </p>
 				</Rounded>
-				<Rounded onClick={() => onClick("v.jpg")}>
-					<p>Vest & Urns</p>
-				</Rounded>
-				<Rounded onClick={() => onClick("shirt.png")}>
+				<Rounded onClick={() => onClick("watch")}>
 					{" "}
-					<p>T-shirt</p>
+					<p>Watches</p>
 				</Rounded>
-				<Rounded onClick={() => onClick("throuser.png")}>
+				<Rounded onClick={() => onClick("book")}>
 					{" "}
-					<p>Trousers</p>
+					<p>Books</p>
 				</Rounded>
-				<Rounded onClick={() => onClick("jacket.png")}>
+				<Rounded onClick={() => onClick("glass")}>
 					{" "}
-					<p>Jackets</p>
+					<p>Glasses</p>
 				</Rounded>
-				<Rounded onClick={() => onClick("shoes.png")}>
+				<Rounded onClick={() => onClick("pot")}>
 					{" "}
+					<p>Pots </p>
+				</Rounded>
+				<Rounded onClick={() => onClick("all")}>
+					<p>All</p>
+				</Rounded>
+				<Rounded onClick={() => onClick("shoes")}>
 					<p>Shoes</p>
 				</Rounded>
-				<Rounded onClick={() => onClick("swim.png")}>
+				<Rounded onClick={() => onClick("cloth")}>
 					{" "}
-					<p>Swimming suits </p>
+					<p>Clothes </p>
+				</Rounded>
+				<Rounded onClick={() => onClick("watch")}>
+					{" "}
+					<p>Watches</p>
+				</Rounded>
+				<Rounded onClick={() => onClick("book")}>
+					{" "}
+					<p>Books</p>
+				</Rounded>
+				<Rounded onClick={() => onClick("glass")}>
+					{" "}
+					<p>Glasses</p>
+				</Rounded>
+				<Rounded onClick={() => onClick("pot")}>
+					{" "}
+					<p>Pots </p>
 				</Rounded>
 			</Slider>
 		</Container>
