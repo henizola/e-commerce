@@ -11,14 +11,14 @@ export default class BannerList extends Component {
 					image: "/images/Blog/blog1.jpeg",
 					name: "Go green: sustainability and the future of shopping",
 					btnText: "Read It Now",
-					link: "/blog#1",
+					link: "/blog/#1",
 				},
 				{
 					id: 2,
 					image: "/images/Blog/blog2.jpeg",
 					name: "How to connect with digital-only customers",
 					btnText: "Read It Now",
-					link: "/blog#2",
+					link: "/blog/#2",
 				},
 			],
 		};
