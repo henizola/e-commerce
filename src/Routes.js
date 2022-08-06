@@ -13,6 +13,7 @@ import Signup from "./views/membership/Signup";
 import ProductDetail from "./views/productDetail/ProductDetail";
 import Shop from "./views/shop/Shop";
 import SignIn from "./views/membership/signin.js/signin";
+import Checkout from "./components/Checkouot/checkout.component";
 const Routes = () => {
 	return (
 		<Switch>
@@ -48,6 +49,12 @@ const Routes = () => {
 				exact
 				path='/product-detail/:product'
 				component={ProductDetail}
+				layout={MainView}
+			/>
+			<RouteWithLayout
+				exact
+				path='/checkout'
+				component={Checkout}
 				layout={MainView}
 			/>
 		</Switch>

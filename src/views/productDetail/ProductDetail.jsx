@@ -1,40 +1,67 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "./ProductDetail.css";
 import "./Modal.css";
 import GuideModal from "../../components/productDetail/modal/GuidModal";
 import RecomendationModal from "../../components/productDetail/modal/RecomendationModal";
 import { products } from "../../data/data";
 import { useParams } from "react-router-dom";
-
+import { apiFetch } from "../../api/ApiCall";
+import { IMAGEENDPOINT } from "../../api/Api";
 const ProductDetail = () => {
 	const params = useParams();
 	const [color, setColor] = useState("Black");
-	const [item, setItem] = useState(
-		products.filter((product) => product.id === params.product)[0]
-	);
-	const [main, setMain] = useState(item && item.thumbnail);
-	console.log("this is the item", item);
+	const [item, setItem] = useState({});
+	const [main, setMain] = useState("");
+
+	useEffect(() => {
+		getProducts();
+	}, []);
+
+	const getProducts = () => {
+		apiFetch(
+			"get",
+			"/product/",
+			(data) => {
+				setItem(data.find((d) => d.id === params.product));
+				setMain(
+					`${IMAGEENDPOINT}${
+						data.find((d) => d.id === params.product).thumbnail
+					}`
+				);
+				console.log(
+					"ola",
+					data.find((d) => d.id === params.product)
+				);
+			},
+			(err) => {
+				console.log(err);
+			}
+		);
+	};
+	console.log(item.productName, "this is the item");
 	return (
 		<div id='top'>
 			<div className='no-gutters main pb-5 text-white sticky'>
 				<div className='pt-3 pl-5'>
-					SPRING-SUMMER 2020 > <a href='#'>VIEW ALL OUTERWEAR</a>
+					{item.productName} > <a href='/shop'>VIEW ALL ITEMS</a>
 				</div>
 				<br />
 				<div className='row no-gutters'>
 					<div className='col-1' id='orange_main'>
-						{item.images.map((item) => (
-							<img
-								src={item.img}
-								height='100px'
-								width='100px'
-								alt='main_image'
-								className='alt-imgs'
-								onClick={() => {
-									setMain(item.img);
-								}}
-							/>
-						))}
+						{item &&
+							item.types &&
+							item.types[0].images.map((item) => (
+								<img
+									src={`${IMAGEENDPOINT}${item.url}`}
+									height='100px'
+									width='100px'
+									alt='main_image'
+									className='alt-imgs'
+									onClick={() => {
+										setMain(`${IMAGEENDPOINT}${item.url}`);
+									}}
+								/>
+							))}
 					</div>
 
 					<div className='col-6 img-container' id='orange_list'>
@@ -49,7 +76,7 @@ const ProductDetail = () => {
 					</div>
 
 					<div className='col-5'>
-						<div className='pt-1'>{item.type}</div>
+						<div className='pt-1'>{item.catagories} </div>
 						<div
 							className='pt-1'
 							style={{
@@ -59,7 +86,7 @@ const ProductDetail = () => {
 								letterSpacing: "0.05em",
 							}}
 						>
-							{item.name}
+							{item.productName}
 						</div>
 						<div
 							style={{
@@ -178,7 +205,7 @@ const ProductDetail = () => {
 					</div>
 				</div>
 			</div>
-			<div
+			{/* <div
 				className='pt-3 pl-5'
 				style={{ backgroundColor: "#fff", padding: "0px 0" }}
 			>
@@ -204,9 +231,9 @@ const ProductDetail = () => {
 				>
 					Style: 0911A11200C0452323
 				</div>
-			</div>
+			</div> */}
 
-			<div className='row no-gutters pt-4' style={{ backgroundColor: "#fff" }}>
+			{/* <div className='row no-gutters pt-4' style={{ backgroundColor: "#fff" }}>
 				<div className='col-lg-5 offset-1'>
 					<div className='accordion' id='accordionExample'>
 						<div className='card'>
@@ -273,7 +300,7 @@ const ProductDetail = () => {
 										<li> Cased elastic armhole</li>
 										<li> Felt Moncler logo</li>
 										<li> Short length</li>
-									</ul> */}
+									</ul> 
 									{item.return}
 								</div>
 							</div>
@@ -336,7 +363,7 @@ const ProductDetail = () => {
 						your order in one of the Moncler boutiques. This service is
 						complimentary.
 					</p>
-					<div className='pt-3'>{/* <b>Product Advice</b> */}</div>
+					<div className='pt-3'>{/* <b>Product Advice</b> </div>
 					<p className='pt-3'>
 						Our style advisors are available for tips and information about this
 						item <b>Mon-Fri, from 9:00am to 6:00pm EST</b>
@@ -347,18 +374,18 @@ const ProductDetail = () => {
 						</p>
 					</div>
 				</div>
-			</div>
-			<div className='mb-4' style={{ backgroundColor: "#fff" }}>
+			</div> */}
+			{/* <div className='mb-4' style={{ backgroundColor: "#fff" }}>
 				<a
 					className='btn text-white btn-dark border inline st_btn_secondary'
 					style={{ marginLeft: 100, padding: 15 }}
 				>
 					SHOP NOW
 				</a>
-			</div>
+			</div> */}
 			<hr />
-			<RecomendationModal />
-			<GuideModal />
+			{/* <RecomendationModal />
+			<GuideModal /> */}
 		</div>
 	);
 };
