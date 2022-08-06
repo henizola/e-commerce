@@ -2,13 +2,17 @@ import { Divider, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 // import { IoChevronBack } from "react-icons/io5";
+import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getTotalPrice } from "../../store/cart";
+import Input from "../../views/membership/components/textfield/input";
+import InputGroup from "../../views/membership/components/textfield/input-group";
 import CartItem from "../Cart-Drawer/CartProduct.component";
 import BpCheckbox from "../custom-checkbox/custom-checkbox.component";
 import { Container } from "./checkout.styles";
-import React from "react";
-import { Link } from "react-router-dom";
+import { Form } from "./checkout.styles";
+
 const Checkout = () => {
 	const cart = useSelector((state) => state.cart);
 
@@ -23,65 +27,81 @@ const Checkout = () => {
 							columnSpacing={{ xs: 2, sm: 5, md: 5 }}
 							className='card contact'
 						>
-							<h5 style={{ paddingTop: "20px" }}>Contact Information</h5>
-							<TextField
-								label='Email or Phone Number'
-								id='outlined-size-small'
-								defaultValue=''
-								size='small'
-							/>
-							<div style={{ paddingTop: "20px" }}>
-								<h5>Shipping Address</h5>
-								<div className='tow-by-two'>
-									<TextField
-										label='First Name'
-										id='outlined-size-small'
-										defaultValue=''
-										size='small'
+							<h2>Contact and Shipping Address</h2>
+							<Form className='form-cont'>
+								<InputGroup>
+									<label htmlFor='firstName'>First Name</label>
+									<Input
+										type='text'
+										placeholder='First Name'
+										id='firstName'
+										onChange={(e) => {
+											// setFirstName(e.target.value);
+										}}
 									/>
-									<TextField
-										label='Last Name'
-										id='outlined-size-small'
-										defaultValue=''
-										size='small'
+									{/* <ErrorDisplay> {error["firstName"]}</ErrorDisplay> */}
+								</InputGroup>
+								<InputGroup>
+									<label htmlFor='lastName'>Last Name</label>
+									<Input
+										type='text'
+										placeholder='Last Name'
+										id='lastName'
+										onChange={(e) => {
+											// setLastName(e.target.value);
+										}}
 									/>
-								</div>
-							</div>
-							<TextField
-								label='Address Line !'
-								id='outlined-size-small'
-								defaultValue=''
-								size='small'
-								style={{ marginTop: "15px" }}
-							/>{" "}
-							<TextField
-								label='Address Line 2'
-								id='outlined-size-small'
-								defaultValue=''
-								size='small'
-								style={{ marginTop: "15px" }}
-							/>{" "}
-							<TextField
-								label='City / Town'
-								id='outlined-size-small'
-								defaultValue=''
-								size='small'
-								style={{ marginTop: "15px" }}
-							/>
-							<div className='tow-by-two' style={{ marginTop: "15px" }}>
-								<TextField
-									label='Country'
-									id='outlined-size-small'
-									defaultValue=''
-									size='small'
-								/>
-								<TextField
-									label='POSTAL/ZIP'
-									id='outlined-size-small'
-									defaultValue=''
-									size='small'
-								/>
-							</div>
+									{/* <ErrorDisplay> {error["lastName"]}</ErrorDisplay> */}
+								</InputGroup>
+								<InputGroup>
+									<label htmlFor='telPhone'>TelePhone</label>
+									<Input
+										type='tel'
+										placeholder='Phone'
+										id='telPhone'
+										onChange={(e) => {
+											// setPhone(e.target.value);
+										}}
+									/>
+									{/* <ErrorDisplay> {error["phone"]}</ErrorDisplay> */}
+								</InputGroup>
+								<InputGroup>
+									<label htmlFor='email'>Email Address</label>
+									<Input
+										type='email'
+										placeholder='Email'
+										id='email'
+										onChange={(e) => {
+											// setEmail(e.target.value);
+										}}
+									/>
+									{/* <ErrorDisplay> {error["email"]}</ErrorDisplay> */}
+								</InputGroup>
+								<InputGroup>
+									<label htmlFor='password'>Address 1</label>
+									<Input
+										type='text'
+										placeholder='Address 1'
+										id='password'
+										onChange={(e) => {
+											// setPassword(e.target.value);
+										}}
+									/>
+									{/* <ErrorDisplay> {error["password"]}</ErrorDisplay> */}
+								</InputGroup>
+								<InputGroup>
+									<label htmlFor='password'>Address 2</label>
+									<Input
+										type='text'
+										placeholder='Address 2'
+										id='password'
+										onChange={(e) => {
+											// setPassword(e.target.value);
+										}}
+									/>
+									{/* <ErrorDisplay> {error["password"]}</ErrorDisplay> */}
+								</InputGroup>
+							</Form>
 						</Grid>{" "}
 						<div
 							style={{

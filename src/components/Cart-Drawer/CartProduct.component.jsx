@@ -2,6 +2,7 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import * as React from "react";
 import { useDispatch } from "react-redux";
+import { IMAGEENDPOINT } from "../../api/Api";
 import {
 	decreaseQuantity,
 	increaseQuantity,
@@ -17,7 +18,7 @@ const CartItem = ({ product, toggleDrawer }) => {
 			<Grid container spacing={5}>
 				<Grid item xs={4} lg={4} style={{ padding: "0!important" }}>
 					<img
-						src={product.image}
+						src={`${IMAGEENDPOINT}${product.thumbnail}`}
 						alt={product.name}
 						className='cartProductImage'
 						onClick={() => toggleDrawer("right", true)}
@@ -33,7 +34,7 @@ const CartItem = ({ product, toggleDrawer }) => {
 					}}
 				>
 					<div>
-						<p>{product.name}</p>
+						<p>{product.productName}</p>
 						<p>{product.description}</p>
 					</div>
 

@@ -2,28 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
 	name: "cart",
-	initialState: [
-		{
-			name: "Iphone X",
-			price: 17000,
-			discount: true,
-			catagorie: "elec",
-			type: "phone",
-			description: "lorem ipsum dir amet lorem  ",
-			stock: 3,
-			bestSelling: false,
-			image:
-				"https://i.pinimg.com/564x/12/ea/b4/12eab45cd5f6545052fa90422ac3df57.jpg",
-			quantity: 1,
-			id: 113344,
-		},
-	],
+	initialState: [],
 	reducers: {
 		putToCart: (cart, action) => {
 			const index = cart.findIndex((car) => car.id === action.payload.id);
 
 			if (index === -1) {
-				cart.push(action.payload);
+				cart.push({ ...action.payload, quantity: 1 });
 			} else cart[index].quantity++;
 		},
 		removeFromCart: (cart, action) => {

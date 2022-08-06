@@ -7,12 +7,14 @@ import { products } from "../../data/data";
 import { useParams } from "react-router-dom";
 import { apiFetch } from "../../api/ApiCall";
 import { IMAGEENDPOINT } from "../../api/Api";
+import { useDispatch } from "react-redux";
+import { putToCart } from "../../store/cart";
 const ProductDetail = () => {
 	const params = useParams();
 	const [color, setColor] = useState("Black");
 	const [item, setItem] = useState({});
 	const [main, setMain] = useState("");
-
+	const dispatch = useDispatch();
 	useEffect(() => {
 		getProducts();
 	}, []);
@@ -38,7 +40,11 @@ const ProductDetail = () => {
 			}
 		);
 	};
-	console.log(item.productName, "this is the item");
+
+	const addToCart = (product) => {
+		dispatch(putToCart(product));
+	};
+
 	return (
 		<div id='top'>
 			<div className='no-gutters main pb-5 text-white sticky'>
@@ -181,21 +187,22 @@ const ProductDetail = () => {
 							</div>
 						</div>
 						<div className='pt-4 my-2'>
-							<a
+							<button
 								className='btn text-white border inline'
 								style={{ borderRadius: 0 }}
+								onClick={() => addToCart(item)}
 							>
 								ADD TO SHOPPING CART
-							</a>
+							</button>
 							<i className='fa fa-heart inline border p-3 ml-4'></i>
 						</div>
 						<div className='pt-4'>
-							<a
+							<button
 								className='btn text-white border inline'
 								style={{ borderRadius: 0 }}
 							>
 								AVAILABILITY IN BOTIQUE
-							</a>
+							</button>
 						</div>
 						<div className='pt-4' style={{ fontSize: 18 }}>
 							Share on :<i className='fa fa-facebook-f ml-4'></i>
