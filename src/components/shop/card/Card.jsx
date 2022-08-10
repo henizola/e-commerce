@@ -34,11 +34,7 @@ const Card = ({ item }) => {
 					</div>
 					{item.types[0].images.slice(0, 2).map((item) => (
 						<div className='inline text-center text-light'>
-							<div
-								onClick={() => {
-									this.setState({ mainImage: "green1.jpg" });
-								}}
-							>
+							<div>
 								<img
 									src={`${IMAGEENDPOINT}${item.url}`}
 									height='100px'

@@ -34,11 +34,6 @@ export const CartProduct = styled.div`
 		border-radius: 20px;
 		padding: 3px 3px;
 		z-index: 999999999;
-		background: linear-gradient(
-			153deg,
-			rgba(0, 255, 246, 1) 0%,
-			rgba(111, 9, 121, 1) 100%
-		);
 	}
 
 	p {

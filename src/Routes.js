@@ -14,6 +14,7 @@ import ProductDetail from "./views/productDetail/ProductDetail";
 import Shop from "./views/shop/Shop";
 import SignIn from "./views/membership/signin.js/signin";
 import Checkout from "./components/Checkouot/checkout.component";
+import Summary from "./components/Summary/summary.component";
 const Routes = () => {
 	return (
 		<Switch>
@@ -55,6 +56,12 @@ const Routes = () => {
 				exact
 				path='/checkout'
 				component={Checkout}
+				layout={MainView}
+			/>
+			<RouteWithLayout
+				exact
+				path='/summary'
+				component={Summary}
 				layout={MainView}
 			/>
 		</Switch>

@@ -130,7 +130,7 @@ const Checkout = () => {
 									cursor: "pointer",
 								}}
 								className='checkout'
-								to='/'
+								to='/shop'
 							>
 								{/* <IoChevronBack /> */}
 								RETURN TO CART{" "}

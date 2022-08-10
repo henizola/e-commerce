@@ -9,6 +9,7 @@ import { apiFetch } from "../../api/ApiCall";
 import { IMAGEENDPOINT } from "../../api/Api";
 import { useDispatch } from "react-redux";
 import { putToCart } from "../../store/cart";
+import toast, { Toaster } from "react-hot-toast";
 const ProductDetail = () => {
 	const params = useParams();
 	const [color, setColor] = useState("Black");
@@ -43,10 +44,14 @@ const ProductDetail = () => {
 
 	const addToCart = (product) => {
 		dispatch(putToCart(product));
+		toast.success("Product Added To Cart", {
+			position: "top-right",
+		});
 	};
 
 	return (
 		<div id='top'>
+			<Toaster />
 			<div className='no-gutters main pb-5 text-white sticky'>
 				<div className='pt-3 pl-5'>
 					{item.productName} > <a href='/shop'>VIEW ALL ITEMS</a>

@@ -69,7 +69,11 @@ export default function CartDrawer({ state, toggleDrawer }) {
 					>
 						Continue Shoping
 					</button>
-					<Link className='checkout' to='/checkout'>
+					<Link
+						className='checkout'
+						to='/checkout'
+						onClick={toggleDrawer("right", false, true)}
+					>
 						Proccess To Checkout
 					</Link>
 				</div>
