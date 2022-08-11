@@ -1,15 +1,33 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import { entitiesReducer } from "./combine-reducers";
 
-import productReducer from "./products";
-import cartReducer from "./cart";
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const reducer = combineReducers({
-  cart: cartReducer,
-  products: productReducer,
-});
+const persistConfig = {
+  key: "counter",
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, entitiesReducer);
 
-export const customConfigureStore = () => {
+const reducer = () => {
   return configureStore({
-    reducer,
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
   });
 };
+
+export default reducer;

@@ -1,19 +1,41 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import "jquery/dist/jquery";
-import "bootstrap/dist/js/bootstrap.bundle";
-import { BrowserRouter as Router } from "react-router-dom";
-import Routes from "./Routes";
+import React from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import routes from "./routes";
+import { useSelector } from "react-redux";
 
-function App() {
+import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
+
+const App = (props) => {
+	const user = useSelector((state) => state.user[0]);
+	const location = useLocation();
+
+	if (
+		!user &&
+		location.pathname !== "/" &&
+		!location.pathname.includes("/user/")
+	) {
+		return <Navigate to='/' replace />;
+	}
+
 	return (
-		<Router onUpdate={() => window.scrollTo(0, 0)}>
-			<div className='App'>
-				<Routes />
-			</div>
-		</Router>
+		<Routes>
+			<Route path='*' element={<Navigate to='/' replace />} />
+			{routes.map((route, index) => {
+				return (
+					<Route
+						key={index}
+						path={route.path}
+						exact={route.exact}
+						element={
+							<route.layout>
+								<route.component />
+							</route.layout>
+						}
+					/>
+				);
+			})}{" "}
+		</Routes>
 	);
-}
-
+};
 export default App;

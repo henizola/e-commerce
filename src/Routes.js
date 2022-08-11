@@ -1,70 +1,91 @@
 import React from "react";
-import { Switch } from "react-router-dom";
-import RouteWithLayout from "./components/routeWithLayout/RouteWithLayout";
-import MainView from "./layout/main/MainView"; //With navbar and footer
-import About from "./views/about/About";
-// import MinimalView from './layout/minimal/MinimalView'; //Without Navbar and Footer
+// Layout Types
+import { DefaultLayout } from "./layouts";
+import NormalLayout from "./layouts/Normal";
+// import DocProfile from "./Views-Backup/Profile";
+// Route Views
 
-// imported Screens
-import Blog from "./views/blog/Blog";
-import Contact from "./views/contact/Contact";
-import Home from "./views/home/Home";
-import Signup from "./views/membership/Signup";
-import ProductDetail from "./views/productDetail/ProductDetail";
-import Shop from "./views/shop/Shop";
-import SignIn from "./views/membership/signin.js/signin";
-import Checkout from "./components/Checkouot/checkout.component";
-import Summary from "./components/Summary/summary.component";
-const Routes = () => {
-	return (
-		<Switch>
-			<RouteWithLayout exact path='/' component={Home} layout={MainView} />
-			<RouteWithLayout path='/blog' component={Blog} layout={MainView} />
-			<RouteWithLayout path='/blog/:id' component={Blog} layout={MainView} />
-			<RouteWithLayout exact path='/shop' component={Shop} layout={MainView} />
-			<RouteWithLayout
-				exact
-				path='/sign-up'
-				component={Signup}
-				layout={MainView}
-			/>
-			<RouteWithLayout
-				exact
-				path='/signin'
-				component={SignIn}
-				layout={MainView}
-			/>
-			<RouteWithLayout
-				exact
-				path='/about'
-				component={About}
-				layout={MainView}
-			/>
-			<RouteWithLayout
-				exact
-				path='/contact'
-				component={Contact}
-				layout={MainView}
-			/>
-			<RouteWithLayout
-				exact
-				path='/product-detail/:product'
-				component={ProductDetail}
-				layout={MainView}
-			/>
-			<RouteWithLayout
-				exact
-				path='/checkout'
-				component={Checkout}
-				layout={MainView}
-			/>
-			<RouteWithLayout
-				exact
-				path='/summary'
-				component={Summary}
-				layout={MainView}
-			/>
-		</Switch>
-	);
-};
-export default Routes;
+import Activate from "./views/Activate";
+import AdminOverview from "./views/AdminOverview";
+import ChangePassword from "./views/ChangePassword";
+import CreateAdminProfile from "./views/CreateAdminProfile";
+import EditProduct from "./views/editProduct";
+import ForgotPassword from "./views/ForgotPassword";
+import LogIn from "./views/Login";
+import Orders from "./views/Orders";
+import Products from "./views/Products";
+import RegisterProduct from "./views/RegisterProduct";
+import ResetPassword from "./views/ResetPassword";
+
+const routes = [
+	{
+		path: "/",
+		exact: true,
+		layout: NormalLayout,
+		component: () => <LogIn />,
+	},
+	{
+		path: "/user/forgot-password",
+		exact: true,
+		layout: NormalLayout,
+		component: () => <ForgotPassword />,
+	},
+
+	{
+		path: "/user/reset/:id",
+		exact: true,
+		layout: NormalLayout,
+		component: () => <ResetPassword />,
+	},
+	{
+		path: "/admin/change-password/",
+		exact: true,
+		layout: NormalLayout,
+		component: () => <ChangePassword />,
+	},
+	{
+		path: "/user/activate-account/:id",
+		exact: false,
+		layout: NormalLayout,
+		component: () => <Activate />,
+	},
+	{
+		path: "/admin/overview",
+		layout: DefaultLayout,
+		component: AdminOverview,
+	},
+	{
+		path: "/admin/register-product",
+		layout: DefaultLayout,
+		component: RegisterProduct,
+	},
+	{
+		path: "/admin/products",
+		layout: DefaultLayout,
+		component: Products,
+	},
+
+	{
+		path: "/admin/edit-products",
+		layout: DefaultLayout,
+		component: EditProduct,
+	},
+	{
+		path: "/admin/create-admin-profile",
+		layout: DefaultLayout,
+		component: CreateAdminProfile,
+	},
+
+	{
+		path: "/admin/orders",
+		layout: DefaultLayout,
+		component: Orders,
+	},
+
+	// {
+	// 	path: "/admin/profile",
+	// 	layout: DefaultLayout,
+	// 	component: DocProfile,
+	// },
+];
+export default routes;

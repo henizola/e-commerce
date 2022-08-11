@@ -1,25 +1,27 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import "./custom-styles.css";
+import configureStore from "./store/store";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { customConfigureStore } from "./store/store";
+// import { persistStore } from "redux-persist";
+// import { PersistGate } from "redux-persist/integration/react";
+//...
 
-const store = customConfigureStore();
-ReactDOM.render(
+const store = configureStore();
+// let persistor = persistStore(store);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
 	<React.StrictMode>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</React.StrictMode>,
-	document.getElementById("root")
+		<BrowserRouter>
+			<Provider store={store}>
+				{/* <PersistGate persistor={persistor}> */}
+				<App />
+				{/* </PersistGate> */}
+			</Provider>
+		</BrowserRouter>
+	</React.StrictMode>
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
