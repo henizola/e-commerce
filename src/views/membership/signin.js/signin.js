@@ -14,10 +14,10 @@ const SignIn = () => {
     setError({});
     setSomeErrors("");
     await axios
-      .post(
-        "https://e-commerce-backend-a.herokuapp.com/e-commerce/auth/login",
-        { email, password }
-      )
+      .post("https://e-commerce-backenda.herokuapp.com/e-commerce/auth/login", {
+        email,
+        password,
+      })
       .then((res) => {
         console.log("response", res.data);
         setError({});

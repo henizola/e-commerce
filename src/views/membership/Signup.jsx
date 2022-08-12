@@ -21,7 +21,7 @@ const Signup = () => {
     //  try {
     await axios
       .post(
-        "https://e-commerce-backend-a.herokuapp.com/e-commerce/auth/register",
+        "https://e-commerce-backenda.herokuapp.com/e-commerce/auth/register",
         { firstName, lastName, email, password, phone, role: "customer" }
       )
       .then((res) => {
