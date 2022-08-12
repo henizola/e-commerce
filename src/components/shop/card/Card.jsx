@@ -13,26 +13,22 @@ const Card = ({ item }) => {
 				/>
 
 				<h2 className='product_name_shop'>{item.productName}</h2>
-				<h4 className='product_name2_shop'>{item.catagories}</h4>
+				{/* <h4 className='product_name2_shop'>{item.catagories}</h4> */}
 				<div>
 					<div className='inline text-center text-light'>
-						<div
-							onClick={() => {
-								this.setState({ mainImage: "green1.jpg" });
-							}}
-						>
-							<img
+						<div>
+							{/* <img
 								src={`${IMAGEENDPOINT}${item.types[0].images[0].url}`}
 								height='100px'
 								width='100px'
 								alt='colors'
 								className='alt-imgs'
-							/>
+							/> */}
 							<br />
-							{item.types[0].images[0].name}
+							{/* {item.types[0].images[0].name} */}
 						</div>
 					</div>
-					{item.types[0].images.slice(0, 2).map((item) => (
+					{item.images.slice(0, 3).map((item) => (
 						<div className='inline text-center text-light'>
 							<div>
 								<img
@@ -49,11 +45,16 @@ const Card = ({ item }) => {
 					))}
 				</div>
 				<ul className='shopul'>
-					{item.types[0].unit.map((siz) => (
-						<li className={`${siz.qty > 0 ? "" : "not"}`}>{siz.size}</li>
+					Sizes:
+					{item.sizes.map((siz) => (
+						<li
+						// className={`${siz.qty > 0 ? "" : "not"}`}
+						>
+							{siz}
+						</li>
 					))}
 				</ul>
-				<h3 className='shop_price'>EUR {item.price}</h3>
+				<h3 className='shop_price'>EUR {item.price} €</h3>
 			</div>
 		</Link>
 	);

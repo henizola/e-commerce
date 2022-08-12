@@ -25,8 +25,8 @@ const Shop = () => {
 			"get",
 			"/product/",
 			(data) => {
-				// console.log(data);
-				setItems([...data]);
+				console.log(data);
+				setItems(data);
 			},
 			(err) => {
 				console.log(err);
