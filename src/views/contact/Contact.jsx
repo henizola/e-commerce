@@ -13,7 +13,7 @@ import Input from "../membership/components/textfield/input";
 class Contact extends Component {
 	render() {
 		return (
-			<div classNameName='wrapper'>
+			<div className='wrapper black'>
 				<nav className='breadcrumb text-center' aria-label='breadcrumbs'>
 					<div className='container '>
 						<h1 className='breadcrumb_title '>Contact Us</h1>

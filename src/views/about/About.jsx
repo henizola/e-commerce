@@ -4,7 +4,7 @@ import "./About.css";
 import "./cloudCarousel";
 const About = () => {
 	return (
-		<div classNameName='wrapper'>
+		<div className='wrapper black'>
 			<div id='carousel1' className='slider'>
 				<img
 					className='cloudcarousel'

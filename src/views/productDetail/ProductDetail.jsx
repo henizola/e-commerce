@@ -50,7 +50,7 @@ const ProductDetail = () => {
 	};
 
 	return (
-		<div id='top'>
+		<div id='top' className='black'>
 			<Toaster />
 			<div className='no-gutters main pb-5 text-white sticky'>
 				<div className='pt-3 pl-5'>

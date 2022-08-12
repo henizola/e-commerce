@@ -93,10 +93,7 @@ button:hover {
     opacity: 1;
 }
 
-table, tr, td, th {
-    border: 2px solid black;
-    border-collapse: collapse;
-  }
+
 
   td{
       padding: 25px;

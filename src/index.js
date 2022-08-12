@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,7 +14,9 @@ const store = customConfigureStore();
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<Router onUpdate={() => window.scrollTo(0, 0)}>
+				<App />
+			</Router>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById("root")

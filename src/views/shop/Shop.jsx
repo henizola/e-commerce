@@ -34,7 +34,7 @@ const Shop = () => {
 		);
 	};
 	return (
-		<div>
+		<div className='black'>
 			<div className='container-fluid'>
 				<div className='catagories'>
 					<CustomSlider onClick={onClick} />

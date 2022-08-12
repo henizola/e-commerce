@@ -1,18 +1,24 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import "jquery/dist/jquery";
 import "bootstrap/dist/js/bootstrap.bundle";
-import { BrowserRouter as Router } from "react-router-dom";
+import "jquery/dist/jquery";
+import React from "react";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import "./App.css";
+import Footer from "./components/templates/footer/Footer";
+import MainNavbar from "./components/templates/navbar/Navbar";
 import Routes from "./Routes";
 
 function App() {
+	const location = useLocation();
+
 	return (
-		<Router onUpdate={() => window.scrollTo(0, 0)}>
+		<div>
+			{!location.pathname.includes("admin") && <MainNavbar />}
 			<div className='App'>
 				<Routes />
 			</div>
-		</Router>
+			{!location.pathname.includes("admin") && <Footer />}
+		</div>
 	);
 }
 

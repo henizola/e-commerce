@@ -9,7 +9,7 @@ import Advert from "../../components/home/Advert/Advert";
 class Home extends Component {
 	render() {
 		return (
-			<div className='wrapper'>
+			<div className='wrapper black'>
 				<Hero />
 				{/* card Section */}
 				<CardList>

@@ -1,0 +1,24 @@
+.regular-styles button{
+    width:100%;
+
+}
+
+.schedule-container {
+    width:100%;
+   display: grid;
+   grid-template-columns: 1fr 10px;
+   grid-gap: 15px;
+   padding:0px 15px;
+}
+
+.close{
+    background-color: red!important;
+    opacity: 1!important;
+    width:20px!important;
+    height:20px!important;
+    border:1px solid red;
+    color:#fff!important;
+    font-size:12px!important;
+    border-radius: 20px;
+}
+
