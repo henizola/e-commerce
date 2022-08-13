@@ -86,7 +86,7 @@ export const Container = styled.div`
 	}
 	.price {
 		width: 99%;
-		margin: 20px 15px;
+		margin: 60px 62px 20px;
 		color: white !important;
 		margin-top: 30px;
 
