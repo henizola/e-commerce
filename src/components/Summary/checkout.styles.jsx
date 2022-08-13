@@ -64,7 +64,6 @@ export const Container = styled.div`
 		width: 92%;
 		margin: 60px 62px 20px;
 		color: white;
-		margin-top: -30px;
 
 		button {
 			border-radius: 20px;

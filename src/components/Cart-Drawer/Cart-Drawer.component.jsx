@@ -21,7 +21,7 @@ export default function CartDrawer({ state, toggleDrawer }) {
 		<Box
 			sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : "55vw" }}
 			role='presentation'
-			style={{ backgroundColor: "black" }}
+			style={{ backgroundColor: "black", minHeight: "100vh" }}
 			onClick={toggleDrawer(anchor, false)}
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
