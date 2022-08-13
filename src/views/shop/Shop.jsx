@@ -14,10 +14,10 @@ const Shop = () => {
 		getProducts();
 	}, []);
 	const onClick = (fill) => {
-		setFilter(fill);
-		fill === "all"
-			? setItems(products)
-			: setItems(products.filter((prod) => prod.type === fill));
+		// setFilter(fill);
+		// fill === "all"
+		// 	? setItems(products)
+		// 	: setItems(products.filter((prod) => prod.type === fill));
 	};
 
 	const getProducts = () => {

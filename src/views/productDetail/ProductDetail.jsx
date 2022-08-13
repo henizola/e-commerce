@@ -12,9 +12,10 @@ import { putToCart } from "../../store/cart";
 import toast, { Toaster } from "react-hot-toast";
 const ProductDetail = () => {
 	const params = useParams();
-	const [color, setColor] = useState("Black");
+	const [color, setColor] = useState("");
 	const [item, setItem] = useState({});
 	const [main, setMain] = useState("");
+	const [size, setSize] = useState("");
 	const dispatch = useDispatch();
 	useEffect(() => {
 		getProducts();
@@ -31,10 +32,7 @@ const ProductDetail = () => {
 						data.find((d) => d.id === params.product).thumbnail
 					}`
 				);
-				console.log(
-					"ola",
-					data.find((d) => d.id === params.product)
-				);
+				setColor(data.find((d) => d.id === params.product).Colors[0]);
 			},
 			(err) => {
 				console.log(err);
@@ -60,8 +58,8 @@ const ProductDetail = () => {
 				<div className='row no-gutters'>
 					<div className='col-1' id='orange_main'>
 						{item &&
-							item.types &&
-							item.types[0].images.map((item) => (
+							item.images &&
+							item.images.map((item) => (
 								<img
 									src={`${IMAGEENDPOINT}${item.url}`}
 									height='100px'
@@ -112,34 +110,27 @@ const ProductDetail = () => {
 							Selected Color :<b> {color}</b>
 						</div>
 						<div>
-							<div className='inline text-center'>
-								<div
-									onClick={() => {
-										setColor("Black");
-									}}
-								>
-									<br />
-									Black
-								</div>
-							</div>
 							<div
 								className='inline text-center'
-								style={{ marginLeft: "20px" }}
+								style={{ marginLeft: "20px", display: "flex" }}
 							>
-								<div
-									onClick={() => {
-										setColor("White");
-									}}
-								>
-									<br />
-									White
-								</div>
+								{item.Colors &&
+									item.Colors.map((color) => (
+										<div
+											onClick={() => {
+												setColor(color);
+											}}
+											style={{ margin: " 10px", cursor: "pointer" }}
+										>
+											{color}
+										</div>
+									))}
 							</div>
 						</div>
 						<div className='pt-3'>
 							<div className='inline'>
 								<div className='dropdown' style={{ borderRadius: 0 }}>
-									<a
+									<span
 										className='btn border text-white dropdown-toggle'
 										href='#'
 										role='button'
@@ -149,18 +140,25 @@ const ProductDetail = () => {
 										aria-expanded='false'
 										style={{ width: 160 }}
 									>
-										Select a size
-									</a>
+										Select a size {size}
+									</span>
 
 									<div
 										className='dropdown-menu border'
 										aria-labelledby='dropdownMenuLink'
 										style={{ backgroundColor: "black" }}
 									>
-										<a className='dropdown-item text-white' href='#'>
-											2 - One Left
-										</a>
-										<a className='dropdown-item text-white' href='#'>
+										{item.sizes &&
+											item.sizes.map((size) => (
+												<span
+													className='dropdown-item text-white'
+													onClick={() => setSize(size)}
+												>
+													{size}
+												</span>
+											))}
+
+										{/* <a className='dropdown-item text-white' href='#'>
 											3 - Sold Out
 										</a>
 										<a className='dropdown-item text-white' href='#'>
@@ -168,7 +166,7 @@ const ProductDetail = () => {
 										</a>
 										<a className='dropdown-item text-white' href='#'>
 											5 - Sold Out
-										</a>
+										</a> */}
 									</div>
 								</div>
 							</div>
